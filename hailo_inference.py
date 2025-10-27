@@ -24,14 +24,14 @@ from object_detection_post_process import extract_detections, draw_detections
 
 from pathlib import Path
 
-LABELS = str(Path(__file__).parent / "common" / "coco.txt")
+# LABELS = str(Path(__file__).parent / "common" / "coco.txt")
 CONFIG = str(Path(__file__).parent / "common" / "config.json")
 
 class HailoInference:
         def __init__(self, net_path: str):
             print("Start Load Hailo Model ", end='------ ')
 
-            self.labels = get_labels(LABELS)
+            # self.labels = get_labels(LABELS)
             self.config_data = load_json_file(CONFIG)
 
             # Hailo Setup
@@ -96,18 +96,18 @@ class HailoInference:
                 self.network_group_context.__exit__(None, None, None)
 
 # Example usage
-if __name__ == "__main__":
-    hailo_models = "models/monov2.hef"
-    hailo_inference = HailoInference(hailo_models)
-    image = cv2.imread("bus.jpg")
-    image = cv2.resize(image, (640, 640))
-    detections = hailo_inference.run(image)
+# if __name__ == "__main__":
+#     hailo_models = "models/monov2.hef"
+#     hailo_inference = HailoInference(hailo_models)
+#     image = cv2.imread("bus.jpg")
+#     image = cv2.resize(image, (640, 640))
+#     detections = hailo_inference.run(image)
     
-    # Draw detections on the resized image (640x640) since coordinates are in that space
-    if detections is not None:
-        frame_with_detections = draw_detections(detections, image, hailo_inference.labels, tracker=None)
-        cv2.imwrite("output.jpg", frame_with_detections)
-        print(f"Saved output with {detections['num_detections']} detections")
-    else:
-        print("No detections found")
-    hailo_inference.close()
+#     # Draw detections on the resized image (640x640) since coordinates are in that space
+#     if detections is not None:
+#         frame_with_detections = draw_detections(detections, image, hailo_inference.labels, tracker=None)
+#         cv2.imwrite("output.jpg", frame_with_detections)
+#         print(f"Saved output with {detections['num_detections']} detections")
+#     else:
+#         print("No detections found")
+#     hailo_inference.close()

@@ -4,10 +4,10 @@
 ![Platform](https://img.shields.io/badge/Platform-SCAiLX-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-The integration between SCAiLX and FLIR Camera to detect objects using thermal image.
+The integration between SCAiLX and FLIR Camera to detect objects using thermal images.
 
 ## Quick Start
-- Clone the repo first in to SCAiLX.
+- Clone the repo first into SCAiLX.
 ```bash
 # Clone with Git LFS
 curl -L https://github.com/git-lfs/git-lfs/releases/download/v3.6.1/git-lfs-linux-arm64-v3.6.1.tar.gz | tar -xz
@@ -16,7 +16,7 @@ git lfs install
 git lfs clone https://github.com/VideologyInc/thermal-demo.git
 ```
 
-- Check the depedencies
+- Check the dependencies
     <details>
     <summary>Dependencies</summary>
   
@@ -28,7 +28,7 @@ git lfs clone https://github.com/VideologyInc/thermal-demo.git
     </details>
 
 ## SCAiLX-USB + FLIR
-- Connect SCAiLX-USB to SCAILX-SOM-AI using the SCAiLX-FLEX-60/120 connector cables by match at GPIO-A pin. 
+- Connect SCAiLX-USB to SCAILX-SOM-AI using the SCAiLX-FLEX-60/120 connector cables by matching at the GPIO-A pin. 
 - Connect the FLIR Camera to SCAiLX-USB using cable type C to A.
 - Check the device connectivity.
 ```bash
@@ -56,12 +56,12 @@ Boson: FLIR Video (usb-xhci-hcd.1.auto-1):
 ```
 
 ## Run the Demo
-- Run the demo with FLIR camera. Refer the input FLIR Video e.g /dev/video1
+- Run the demo with the FLIR camera. Refer to the input FLIR Video, e.g /dev/video1
 ```bash
 cd thermal-demo
 python3 thermal_demo.py -s /dev/video1
 ```
-- Run the demo with example video. We had two example vide provided:
+- Run the demo with the example video. We had two example videos provided:
     - video_flir_1.mp4
     - video_flir_2.mp4
 ```bash

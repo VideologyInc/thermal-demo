@@ -25,6 +25,8 @@ git lfs clone https://github.com/VideologyInc/thermal-demo.git
     - gstreamer  
     - opencv2  
     - numpy
+    - loguru
+
     </details>
 
 ## SCAiLX-USB + FLIR

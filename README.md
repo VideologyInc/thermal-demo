@@ -9,11 +9,8 @@ The integration between SCAiLX and FLIR Camera to detect objects using thermal i
 ## Quick Start
 - Clone the repo first into SCAiLX.
 ```bash
-# Clone with Git LFS
-curl -L https://github.com/git-lfs/git-lfs/releases/download/v3.6.1/git-lfs-linux-arm64-v3.6.1.tar.gz | tar -xz
-cp ./git-lfs*/git-lfs /usr/bin
-git lfs install
-git lfs clone https://github.com/VideologyInc/thermal-demo.git
+# Clone with Git
+git clone https://github.com/VideologyInc/thermal-demo.git
 ```
 
 - Check the dependencies
@@ -61,12 +58,12 @@ Boson: FLIR Video (usb-xhci-hcd.1.auto-1):
 - Run the demo with the FLIR camera. Refer to the input FLIR Video, e.g /dev/video1
 ```bash
 cd thermal-demo
-python3 thermal_demo.py -s /dev/video1
+bash run_thermal_stream.sh
 ```
-- Run the demo with the example video. We had two example videos provided:
-    - video_flir_1.mp4
-    - video_flir_2.mp4
+- Run the demo with the examples video provided in the samples directory.
+    - samples/video_flir_1.mp4
+    - samplesvideo_flir_2.mp4
 ```bash
 cd thermal-demo
-python3 thermal_demo.py -s video_flir_1.mp4
+bash run_thermal_video.sh samples/video_flir_1.mp4
 ```

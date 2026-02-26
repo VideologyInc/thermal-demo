@@ -1,7 +1,8 @@
 #!/bin/bash
 
 gst-launch-1.0 \
-  v4l2src device=/dev/video0 ! video/x-raw,format=NV12,width=640,height=512,framerate=9/1 ! \
+  v4l2src device=/dev/video0 ! \
+  video/x-raw,format=NV12,width=640,height=512,framerate=9/1 ! \
   videoconvert ! videoscale ! \
   queue leaky=no max-size-buffers=30 max-size-bytes=0 max-size-time=0 ! \
   hailonet hef-path=thermal_yolov8s.hef ! \

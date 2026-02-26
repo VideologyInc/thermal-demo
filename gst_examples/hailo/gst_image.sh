@@ -1,11 +1,11 @@
 #!/bin/bash
 
-IMAGE_PATH="${1:-mono.png}"
+IMAGE_PATH="${1:-../../samples/mono.png}"
 
-echo "Using video: $IMAGE_PATH"
+echo "Using image: $IMAGE_PATH"
 
 if [ ! -f "$IMAGE_PATH" ]; then
-  echo "Error: Video file not found: $IMAGE_PATH"
+  echo "Error: Image file not found: $IMAGE_PATH"
   exit 1
 fi
 
@@ -14,9 +14,9 @@ gst-launch-1.0 -e \
   imagefreeze num-buffers=10 ! \
   videoscale ! videoconvert ! \
   queue ! \
-  hailonet hef-path=thermal_yolov8s.hef ! \
+  hailonet hef-path=../../models/thermal_yolov8s.hef ! \
   hailofilter so-path=/usr/lib/hailo-post-processes/libyolo_hailortpp_post.so \
-    function-name=filter config-path=thermal.json ! \
+    function-name=filter config-path=../../configs/thermal.json ! \
   queue ! \
   hailooverlay ! \
   videoconvert ! \

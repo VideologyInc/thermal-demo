@@ -1,7 +1,7 @@
 #!/bin/bash
 
 gst-launch-1.0 \
-    filesrc location=../../sample/mono2.png ! pngdec ! videoscale ! videoconvert ! video/x-raw,width=640,height=640 ! tee name=t \
+    filesrc location=../../samples/mono2.png ! pngdec ! videoscale ! videoconvert ! video/x-raw,width=640,height=640 ! tee name=t \
     t. ! queue leaky=2 max-size-buffers=2 ! videoscale ! videoconvert ! video/x-raw,width=320,height=320,format=RGB ! \
     tensor_converter ! \
     queue leaky=2 max-size-buffers=2 ! \

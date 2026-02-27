@@ -136,10 +136,10 @@ if __name__ == "__main__":
         "-s", "--source", type=str, default="/dev/video-isi-csi0", help="Video source, e.g. dev/video0 or video file path"
     )
     parser.add_argument(
-        "-n","--model", type=str, default="models/mono.hef", help="Path for models and image"
+        "-n","--model", type=str, default="../models/thermal_yolov8s.hef", help="Path for models and image"
     )
     parser.add_argument(
-        "-l", "--labels", type=str, default="common/mono.txt", help="Path for labels"
+        "-l", "--labels", type=str, default="common/thermal.txt", help="Path for labels"
     )
     args = parser.parse_args()
 

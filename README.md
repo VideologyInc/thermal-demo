@@ -1,10 +1,10 @@
-# SCAiLX Thermal Demo
+# SCAiLX Thermal Detection Demo
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Platform](https://img.shields.io/badge/Platform-SCAiLX-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-The integration between SCAiLX and FLIR Camera to detect objects using thermal images.
+The integration between SCAiLX and FLIR Camera to detect objects using thermal images. The thermal detection model is able to run with NPU iMX8MP or Hailo. We provide examples to run the detection using gstreamer and python.
 
 ## Quick Start
 - Clone the repo first into SCAiLX.
@@ -55,15 +55,43 @@ Boson: FLIR Video (usb-xhci-hcd.1.auto-1):
 ```
 
 ## Run the Demo
-- Run the demo with the FLIR camera. Refer to the input FLIR Video, e.g /dev/video1
+
+### 1. GStreamer Hailo
+- Run the stream using video input from FLIR camera.
 ```bash
 cd thermal-demo
 bash run_thermal_stream.sh
 ```
-- Run the demo with the examples video provided in the samples directory.
-    - samples/video_flir_1.mp4
-    - samplesvideo_flir_2.mp4
+- Run with video from the samples provided.
 ```bash
 cd thermal-demo
 bash run_thermal_video.sh samples/video_flir_1.mp4
 ```
+
+### 2. Gstreamer NPU
+- Run the stream using video input from FLIR camera.
+```bash
+cd thermal-demo/gst_examples/nnstreamer
+bash gst_stream.sh
+```
+- Run with video from the samples provided.
+```bash
+cd thermal-demo/gst_examples/nnstreamer
+bash gst_video.sh
+```
+
+### 3. Python
+- Run the demo with the FLIR camera. Refer to the input FLIR Video, e.g /dev/video1
+```bash
+cd thermal-demo/python
+python3 thermal_demo.py -s /dev/video1
+```
+- Run the demo with the example video. We had two example videos provided:
+    - video_flir_1.mp4
+    - video_flir_2.mp4
+```bash
+cd thermal-demo/python
+python3 thermal_demo.py -s video_flir_1.mp4
+```
+
+ 
